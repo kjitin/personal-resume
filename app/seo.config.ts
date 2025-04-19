@@ -2,11 +2,11 @@ export const siteConfig = {
     name: "Jitin Kayyala - Java Backend Developer",
     description:
       "Experienced Java backend developer specializing in Spring Boot, microservices, and high-performance systems",
-    url: "https://jitinkayyala.com",
-    ogImage: "https://jitinkayyala.com/og-image.jpg",
+    url: "https://jitin-kayyala.vercel.app",
+    ogImage: "https://jitin-kayyala.vercel.app/og-image.jpg",
     links: {
-      github: "https://github.com/jitinkayyala",
-      linkedin: "https://linkedin.com/in/jitinkayyala",
+      github: "https://github.com/kjitin",
+      linkedin: "https://linkedin.com/in/jitin-kayyala/",
     },
     keywords: [
       "Java Developer",
@@ -21,7 +21,7 @@ export const siteConfig = {
     ],
     author: {
       name: "Jitin Kayyala",
-      url: "https://jitinkayyala.com",
+      url: "https://jitin-kayyala.vercel.app",
     },
   }
   
