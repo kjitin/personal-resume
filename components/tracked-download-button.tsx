@@ -32,7 +32,6 @@ export function TrackedDownloadButton({
 
       // Track the download server-side
       const result = await trackDownload(resumePath, navigator.userAgent, document.referrer)
-
       if (result.success) {
         // Create a client-side download
         const link = document.createElement("a")
@@ -52,6 +51,7 @@ export function TrackedDownloadButton({
         // Track in client-side analytics
         trackDownloadAnalytics(fileName || resumePath.split("/").pop() || "resume.pdf", resumePath)
       } else {
+        console.error("resume path is "+ resumePath)
         throw new Error(result.message)
       }
     } catch (error) {
