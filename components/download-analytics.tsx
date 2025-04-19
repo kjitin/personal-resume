@@ -3,11 +3,11 @@
 import { useEffect, useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Download, TrendingUp, Users } from "lucide-react"
-import { getDownloadStats } from "@/app/actions/download-actions"
+import { getDownloadStats, type DownloadEvent } from "@/app/actions/download-actions"
 
 interface DownloadAnalytics {
   totalDownloads: number
-  recentDownloads: unknown[]
+  recentDownloads: DownloadEvent[]
   conversionRate?: string
   topReferrers?: { source: string; count: number }[]
 }

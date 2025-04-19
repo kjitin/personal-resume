@@ -8,7 +8,7 @@ interface AnalyticsEvent {
   label?: string
   value?: number
   nonInteraction?: boolean
-  [key: string]: any
+  [key: string]: unknown
 }
 
 export function useGoogleAnalytics() {
@@ -16,7 +16,7 @@ export function useGoogleAnalytics() {
 
   useEffect(() => {
     // Check if Google Analytics is loaded
-    if (typeof window !== "undefined" && window.gtag) {
+    if (typeof window !== "undefined" && typeof window.gtag === "function") {
       setIsInitialized(true)
     }
   }, [])

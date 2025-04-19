@@ -4,15 +4,15 @@ import type React from "react"
 
 import { Button } from "@/components/ui/button"
 import { ArrowRight } from "lucide-react"
-import type { ButtonProps } from "@/components/ui/button"
 
-interface ScrollButtonProps extends ButtonProps {
+interface ScrollButtonProps {
   targetId: string
+  size?: "default" | "sm" | "lg" | "icon"
   children: React.ReactNode
   showArrow?: boolean
 }
 
-export function ScrollButton({ targetId, children, showArrow = true, ...props }: ScrollButtonProps) {
+export function ScrollButton({ targetId, children,  size = "default",showArrow = true, ...props }: ScrollButtonProps) {
   const handleClick = () => {
     const element = document.getElementById(targetId)
     if (element) {
@@ -21,7 +21,7 @@ export function ScrollButton({ targetId, children, showArrow = true, ...props }:
   }
 
   return (
-    <Button onClick={handleClick} {...props}>
+    <Button onClick={handleClick} size = {size} {...props}>
       {children}
       {showArrow && <ArrowRight className="ml-2 h-4 w-4" />}
     </Button>

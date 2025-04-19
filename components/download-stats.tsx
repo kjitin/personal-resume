@@ -5,8 +5,25 @@ import { getDownloadStats } from "@/app/actions/download-actions"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Download } from "lucide-react"
 
+type DownloadEvent = {
+    timestamp: string
+    fileName: string
+    userAgent?: string
+    referer?: string
+    ip?: string
+  }
+  
+  // Define the stats state type
+  interface DownloadStats {
+    totalDownloads: number
+    recentDownloads: DownloadEvent[]
+  }
+
 export function DownloadStats() {
-  const [stats, setStats] = useState({ totalDownloads: 0, recentDownloads: [] })
+    const [stats, setStats] = useState<DownloadStats>({
+        totalDownloads: 0,
+        recentDownloads: [],
+      })
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {

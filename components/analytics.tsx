@@ -4,7 +4,7 @@ import { useEffect } from "react"
 import Script from "next/script"
 
 // Replace with your actual Google Analytics ID
-const GA_MEASUREMENT_ID = "G-XXXXXXXXXX"
+const GA_MEASUREMENT_ID = "G-MLKMSJBX26"
 
 declare global {
   interface Window {

@@ -5,7 +5,7 @@ import fs from "fs"
 import path from "path"
 import { headers as getHeaders } from "next/headers"
 
-type DownloadEvent = {
+export type DownloadEvent = {
   timestamp: string
   fileName: string
   userAgent?: string
@@ -23,7 +23,7 @@ async function trackEventInGoogleAnalytics(event: string, params: Record<string,
     const measurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-XXXXXXXXXX"
 
     // Get client IP and user agent
-    const headersList = getHeaders()
+    const headersList = await getHeaders()
     const userAgent = headersList.get("user-agent") || ""
     const clientIp = headersList.get("x-forwarded-for") || "anonymous"
 
@@ -123,9 +123,9 @@ export async function trackDownload(
 }
 
 // For demonstration purposes - in a real app, this would be a database query
-export async function getDownloadStats() {
-  return {
-    totalDownloads: downloadEvents.length,
-    recentDownloads: downloadEvents.slice(-5),
+export async function getDownloadStats(): Promise<{ totalDownloads: number; recentDownloads: DownloadEvent[] }> {
+    return {
+      totalDownloads: downloadEvents.length,
+      recentDownloads: downloadEvents.slice(-5),
+    }
   }
-}
