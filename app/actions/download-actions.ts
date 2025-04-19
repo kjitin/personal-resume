@@ -71,7 +71,7 @@ export async function trackDownload(
   try {
     // Get file path
     const filePath = path.join(process.cwd(), "public", fileName)
-    console.error("filePath "+filePath) 
+
     // Check if file exists
     if (!fs.existsSync(filePath)) {
       return {
