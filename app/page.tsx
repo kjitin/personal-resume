@@ -1,16 +1,17 @@
 import Link from "next/link"
-import { ArrowRight, Code, Database, Download, ExternalLink, Github, Layers, Mail, Server } from "lucide-react"
+import Image from "next/image"
+import { ArrowRight, Code, Database, Github, Layers, Mail, Server } from "lucide-react"
+import type { ReactNode } from "react"
 
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { LocationGreeting } from "@/components/location-greeting"
 import { StructuredData } from "@/components/structured-data"
 import { AnalyticsProvider } from "@/components/analytics-provider"
 import { ScrollButton } from "@/components/scroll-button"
 import { TrackedDownloadButton } from "@/components/tracked-download-button"
-import { Toaster } from "@/components/ui/toaster"
 import { DownloadStats } from "@/components/download-stats"
 
 export default function Home() {
@@ -67,7 +68,7 @@ export default function Home() {
                   </p>
                 </div>
                 <p className="text-muted-foreground">
-                  I'm a full stack developer with 15+ years of experience specializing in Java, Spring Boot, and
+                  I&apos;m a full stack developer with 15+ years of experience specializing in Java, Spring Boot, and
                   microservices architecture. I build high-performance, scalable systems that power modern applications.
                 </p>
 
@@ -85,11 +86,16 @@ export default function Home() {
               </div>
               <div className="md:w-1/2 relative">
                 <div className="aspect-square w-full max-w-[400px] rounded-full border-2 border-primary/20 p-1 relative mx-auto">
-                  <img
+                <div className="relative w-full h-full rounded-full overflow-hidden">
+                  <Image
                     src="/jitin.png?height=400&width=400"
                     alt="Jitin Kayyala"
-                    className="rounded-full object-cover"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 400px"
+                    className="object-cover"
+                    priority
                   />
+                  </div>
                   <div className="absolute -top-4 -right-4 bg-background rounded-full p-3 shadow-lg border">
                     <Server className="h-6 w-6 text-primary" />
                   </div>
@@ -113,7 +119,7 @@ export default function Home() {
               <div className="text-center space-y-4 max-w-[800px] mx-auto">
                 <h2 className="text-3xl md:text-4xl font-bold">About Me</h2>
                 <p className="text-muted-foreground text-lg">
-                  I'm a passionate backend developer with a focus on building efficient, scalable, and maintainable
+                  I&apos;m a passionate backend developer with a focus on building efficient, scalable, and maintainable
                   systems.
                 </p>
               </div>
@@ -126,12 +132,12 @@ export default function Home() {
                   <CardContent className="space-y-4">
                     <p>
                       I started my programming journey after my Instrumentation Engineering degree, where I discovered my passion
-                      for backend development. Over the past 15+ years, I've worked with various companies to build robust
+                      for backend development. Over the past 15+ years, I&apos;ve worked with various companies to build robust
                       backend systems that handle millions of requests daily.
                     </p>
                     <p>
                       My expertise lies in designing and implementing high-performance Java applications, microservices
-                      architecture, and database optimization. I'm constantly learning and adapting to new technologies
+                      architecture, and database optimization. I&apos;m constantly learning and adapting to new technologies
                       to stay at the forefront of backend development.
                     </p>
                   </CardContent>
@@ -313,11 +319,15 @@ export default function Home() {
                   </CardHeader>
                   <CardContent className="flex-1">
                     <div className="aspect-video rounded-md overflow-hidden bg-muted mb-4">
-                      <img
+                    <div className="relative w-full h-full rounded-md overflow-hidden">
+                      <Image
                         src="/passport.png?height=200&width=400"
                         alt="E-Commerce Architecture"
+                        width = {400}
+                        height = {200}
                         className="w-full h-full object-cover"
                       />
+                      </div>
                     </div>
                     <p className="text-muted-foreground mb-4">
                     Responsible for improving or enhancing the U/X of the website by adding new journeys or modifying existing journey as part of a team in Kainos.
@@ -341,11 +351,15 @@ export default function Home() {
                   </CardHeader>
                   <CardContent className="flex-1">
                     <div className="aspect-video rounded-md overflow-hidden bg-muted mb-4">
-                      <img
+                    <div className="relative w-full h-full rounded-md overflow-hidden">
+                      <Image
                         src="/WorldCheckOne.png?height=200&width=400"
                         alt="Banking API Architecture"
+                        width ={400}
+                        height = {200}
                         className="w-full h-full object-cover"
                       />
+                      </div>
                     </div>
                     <p className="text-muted-foreground mb-4">
                     Led a team and was responsible for making changes in the World Check One product of LSEG and improving casesearch functionality.
@@ -368,11 +382,15 @@ export default function Home() {
                   </CardHeader>
                   <CardContent className="flex-1">
                     <div className="aspect-video rounded-md overflow-hidden bg-muted mb-4">
-                      <img
+                    <div className="relative w-full h-full rounded-md overflow-hidden">
+                      <Image
                         src="/insight.png?height=200&width=400"
+                        width = {400}
+                        height = {200}
                         alt="Data Pipeline Architecture"
                         className="w-full h-full object-cover"
                       />
+                      </div>
                     </div>
                     <p className="text-muted-foreground mb-4">
                     Responsible for creating REST interfaces and integrating third party applications and building services for adding functionality to the website.
@@ -689,11 +707,11 @@ export default function Home() {
               © {new Date().getFullYear()} Jitin Kayyala. All rights reserved.
             </div>
             <div className="flex gap-4">
-              <a href="#" className="text-muted-foreground hover:text-foreground">
+              <a href="https://github.com/kjitin" className="text-muted-foreground hover:text-foreground">
                 <Github className="h-5 w-5" />
                 <span className="sr-only">GitHub</span>
               </a>
-              <a href="#" className="text-muted-foreground hover:text-foreground">
+              <a href="https://www.linkedin.com/in/jitin-kayyala/" className="text-muted-foreground hover:text-foreground">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   width="24"
@@ -712,7 +730,7 @@ export default function Home() {
                 </svg>
                 <span className="sr-only">LinkedIn</span>
               </a>
-              <a href="#" className="text-muted-foreground hover:text-foreground">
+              <a href="mailto:jitin.kayyala@gmail.com" className="text-muted-foreground hover:text-foreground">
                 <Mail className="h-5 w-5" />
                 <span className="sr-only">Email</span>
               </a>
@@ -723,8 +741,15 @@ export default function Home() {
     </AnalyticsProvider>
   )
 }
+// Define the interface for SkillCard props
+interface SkillCardProps {
+  title: string
+  icon: ReactNode
+  level: string
+  description: string
+}
 
-function SkillCard({ title, icon, level, description }) {
+function SkillCard({ title, icon, level, description } : SkillCardProps) {
   return (
     <Card className="overflow-hidden">
       <CardHeader className="p-4">

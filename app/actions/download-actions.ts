@@ -17,7 +17,7 @@ type DownloadEvent = {
 const downloadEvents: DownloadEvent[] = []
 
 // Server-side Google Analytics tracking
-async function trackEventInGoogleAnalytics(event: string, params: Record<string, any>) {
+async function trackEventInGoogleAnalytics(event: string, params: Record<string, unknown>) {
   try {
     // Get the Google Analytics Measurement ID from environment variables or use a default
     const measurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-XXXXXXXXXX"

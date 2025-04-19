@@ -8,8 +8,8 @@ const GA_MEASUREMENT_ID = "G-XXXXXXXXXX"
 
 declare global {
   interface Window {
-    dataLayer: any[]
-    gtag: (...args: any[]) => void
+    dataLayer: unknown[]
+    gtag: (...args: unknown[]) => void
   }
 }
 
@@ -18,7 +18,7 @@ export function Analytics() {
     // Initialize dataLayer
     window.dataLayer = window.dataLayer || []
 
-    function gtag(...args: any[]) {
+    function gtag(...args: unknown[]) {
       window.dataLayer.push(args)
     }
 
