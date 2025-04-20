@@ -43,7 +43,7 @@ export default function Home() {
               </Link>
             </nav>
             <TrackedDownloadButton
-              resumePath="files/JitinKayyala.pdf"
+              resumePath="/JitinKayyala.pdf"
               fileName="JitinKayyala.pdf"
               className="hidden md:flex"
             />
