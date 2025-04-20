@@ -76,7 +76,7 @@ export async function trackDownload(
     if (!fs.existsSync(filePath)) {
       return {
         success: false,
-        message: "File not found",
+        message: "File not found in path "+ filePath,
       }
     }
 
