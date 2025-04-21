@@ -13,6 +13,8 @@ import { AnalyticsProvider } from "@/components/analytics-provider"
 import { ScrollButton } from "@/components/scroll-button"
 import { TrackedDownloadButton } from "@/components/tracked-download-button"
 import { DownloadStats } from "@/components/download-stats"
+import { MobileNav } from "@/components/mobile-nav"
+import { ResponsiveProfileImage } from "@/components/responsive-profile-image"
 
 export default function Home() {
   return (
@@ -42,11 +44,14 @@ export default function Home() {
                 Contact
               </Link>
             </nav>
+            <div className="flex items-center gap-4">
             <TrackedDownloadButton
               resumePath="/JitinKayyala.pdf"
               fileName="JitinKayyala.pdf"
               className="hidden md:flex"
             />
+            <MobileNav />
+            </div>
           </div>
           
         </header>
@@ -85,17 +90,8 @@ export default function Home() {
                 
               </div>
               <div className="md:w-1/2 relative">
-                <div className="aspect-square w-full max-w-[400px] rounded-full border-2 border-primary/20 p-1 relative mx-auto">
-                <div className="relative w-full h-full rounded-full overflow-hidden">
-                  <Image
-                    src="/jitin.png?height=400&width=400"
-                    alt="Jitin Kayyala"
-                    fill
-                    sizes="(max-width: 768px) 100vw, 400px"
-                    className="object-cover"
-                    priority
-                  />
-                  </div>
+              <div className="relative mx-auto">
+              <ResponsiveProfileImage name="Jitin Kayyala" imagePath="/jitin.png?height=400&width=400" />
                   <div className="absolute -top-4 -right-4 bg-background rounded-full p-3 shadow-lg border">
                     <Server className="h-6 w-6 text-primary" />
                   </div>
