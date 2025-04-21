@@ -16,6 +16,27 @@ export type DownloadEvent = {
 // In a real app, you would store this in a database
 const downloadEvents: DownloadEvent[] = []
 
+async function fileExists(filePath: string): Promise<boolean> {
+    try {
+      // In development, we can check the filesystem directly
+      if (process.env.NODE_ENV === "development") {
+        const fullPath = path.join(process.cwd(), "public", filePath)
+        return fs.existsSync(fullPath)
+      }
+  
+      // In production, make a HEAD request to check if the file exists
+      // Get the base URL from environment or use a default
+      const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
+      const fileUrl = new URL(filePath, baseUrl).toString()
+  
+      const response = await fetch(fileUrl, { method: "HEAD" })
+      return response.ok
+    } catch (error) {
+      console.error("Error checking if file exists:", error)
+      return false
+    }
+  }
+
 // Server-side Google Analytics tracking
 async function trackEventInGoogleAnalytics(event: string, params: Record<string, unknown>) {
   try {
@@ -70,17 +91,15 @@ export async function trackDownload(
 ): Promise<{ success: boolean; message: string; filePath?: string }> {
   try {
     // Get file path
-    const filePath = path.join(process.cwd(), "public", fileName)
+    const filePathWithoutLeadingSlash = fileName.startsWith("/") ? fileName.slice(1) : fileName
+    const exists = await fileExists(filePathWithoutLeadingSlash)
 
     // Check if file exists
-    if (!fs.existsSync(filePath)) {
-        const folder = path.join(process.cwd(), "public")
-        fs.readdirSync(folder).forEach(file => {
-            console.error(file);
-          });
+    if (!exists) {
+    
         return {
         success: false,
-        message: "File not found in path "+ filePath,
+        message: `File not found: ${fileName}`,
       }
     }
 
