@@ -74,7 +74,11 @@ export async function trackDownload(
 
     // Check if file exists
     if (!fs.existsSync(filePath)) {
-      return {
+        const folder = path.join(process.cwd(), "public")
+        fs.readdirSync(folder).forEach(file => {
+            console.error(file);
+          });
+        return {
         success: false,
         message: "File not found in path "+ filePath,
       }
