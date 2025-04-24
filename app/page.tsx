@@ -12,7 +12,6 @@ import { StructuredData } from "@/components/structured-data"
 import { AnalyticsProvider } from "@/components/analytics-provider"
 import { ScrollButton } from "@/components/scroll-button"
 import { TrackedDownloadButton } from "@/components/tracked-download-button"
-import { DownloadStats } from "@/components/download-stats"
 import { MobileNav } from "@/components/mobile-nav"
 import { ResponsiveProfileImage } from "@/components/responsive-profile-image"
 
@@ -99,12 +98,6 @@ export default function Home() {
                     <Code className="h-6 w-6 text-primary" />
                   </div>
                 </div>
-              </div>
-            </div>
-            {/* Add download stats in hero section */}
-            <div className="flex justify-center">
-              <div className="w-full max-w-xs">
-                <DownloadStats />
               </div>
             </div>
           </section>

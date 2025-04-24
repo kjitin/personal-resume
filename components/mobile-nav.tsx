@@ -22,7 +22,7 @@ export function MobileNav() {
       <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
         <div className="flex items-center justify-between">
           <div className="font-bold text-xl">
-            John<span className="text-primary">Dev</span>
+            Jitin <span className="text-primary">Kayyala</span>
           </div>
           <Button variant="ghost" size="icon" onClick={() => setOpen(false)}>
             <X className="h-5 w-5" />

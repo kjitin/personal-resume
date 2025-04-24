@@ -4,7 +4,7 @@ import { useCallback } from "react"
 
 export function useAnalytics() {
   // Custom event tracking function
-  const trackEvent = useCallback((eventName: string, eventParams: Record<string, any> = {}) => {
+  const trackEvent = useCallback((eventName: string, eventParams: Record<string, unknown> = {}) => {
     if (typeof window !== "undefined" && window.gtag) {
       window.gtag("event", eventName, eventParams)
     }

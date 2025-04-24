@@ -2,8 +2,8 @@ export const siteConfig = {
     name: "Jitin Kayyala - Java Backend Developer",
     description:
       "Experienced Java backend developer specializing in Spring Boot, microservices, and high-performance systems",
-    url: "https://jitin-kayyala.vercel.app",
-    ogImage: "https://jitin-kayyala.vercel.app/og-image.jpg",
+    url: "https://jitinkayyala.com",
+    ogImage: "https://jitinkayyala.com/jitin.png",
     links: {
       github: "https://github.com/kjitin",
       linkedin: "https://linkedin.com/in/jitin-kayyala/",
@@ -21,7 +21,7 @@ export const siteConfig = {
     ],
     author: {
       name: "Jitin Kayyala",
-      url: "https://jitin-kayyala.vercel.app",
+      url: "https://jitinkayyala.com",
     },
   }
   
