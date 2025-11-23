@@ -74,6 +74,7 @@ export default function Home() {
                 <p className="text-muted-foreground">
                   I&apos;m a full stack developer with 15+ years of experience specializing in Java, Spring Boot, and
                   microservices architecture. I build high-performance, scalable systems that power modern applications.
+                  Check out my blog on <Link href = "https://medium.com/@kjitin" className="text-muted-foreground hover:text-foreground transition-colors">Medium</Link>
                 </p>
 
                 <LocationGreeting />
